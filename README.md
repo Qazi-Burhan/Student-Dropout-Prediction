@@ -24,7 +24,7 @@ directory.
 
 ### Dashboard overview
 
-![Dashboard overview placeholder] (Pic1.png)
+![Dashboard overview placeholder](Pic1.png)
 
 ### Dataset exploration
 
