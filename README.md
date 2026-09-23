@@ -24,23 +24,23 @@ directory.
 
 ### Dashboard overview
 
-![Dashboard overview placeholder](Pic1.png)
+![Dashboard overview](screenshots/Pic1.png)
 
 ### Dataset exploration
 
-![Dataset exploration placeholder](Pic2.png)
+![Dataset exploration](screenshots/Pic2.png)
 
 ### Model training
 
-![Model training placeholder](Pic3.png)
+![Model training](screenshots/Pic3.png)
 
 ### Model evaluation
 
-![Model evaluation placeholder](Pic4.png)
+![Model evaluation](screenshots/Pic4.png)
 
 ### Interactive risk application
 
-![Risk application placeholder](Pic5.png)
+![Risk application](screenshots/Pic5.png)
 
 ## Project workflow
 
