@@ -1,0 +1,203 @@
+{
+  "source": "UCI Machine Learning Repository — Predict Students Dropout and Academic Success",
+  "file_format": "CSV (Comma-Separated Values)",
+  "shape": [
+    4424,
+    37
+  ],
+  "records_count": 4424,
+  "features_count": 36,
+  "target_column": "Target",
+  "target_distribution": {
+    "Graduate": 2217,
+    "Dropout": 1434,
+    "Enrolled": 773
+  },
+  "columns": [
+    {
+      "column": "Marital_status",
+      "dtype": "integer",
+      "sample": "1"
+    },
+    {
+      "column": "Application_mode",
+      "dtype": "integer",
+      "sample": "1"
+    },
+    {
+      "column": "Application_order",
+      "dtype": "integer",
+      "sample": "5"
+    },
+    {
+      "column": "Course",
+      "dtype": "integer",
+      "sample": "9556"
+    },
+    {
+      "column": "Daytime_evening_attendance",
+      "dtype": "integer",
+      "sample": "1"
+    },
+    {
+      "column": "Previous_qualification",
+      "dtype": "integer",
+      "sample": "4"
+    },
+    {
+      "column": "Previous_qualification_grade",
+      "dtype": "float64",
+      "sample": "152.4"
+    },
+    {
+      "column": "Nacionality",
+      "dtype": "integer",
+      "sample": "1"
+    },
+    {
+      "column": "Mothers_qualification",
+      "dtype": "integer",
+      "sample": "13"
+    },
+    {
+      "column": "Fathers_qualification",
+      "dtype": "integer",
+      "sample": "15"
+    },
+    {
+      "column": "Mothers_occupation",
+      "dtype": "integer",
+      "sample": "11"
+    },
+    {
+      "column": "Fathers_occupation",
+      "dtype": "integer",
+      "sample": "10"
+    },
+    {
+      "column": "Admission_grade",
+      "dtype": "float64",
+      "sample": "137.0"
+    },
+    {
+      "column": "Displaced",
+      "dtype": "integer",
+      "sample": "1"
+    },
+    {
+      "column": "Educational_special_needs",
+      "dtype": "integer",
+      "sample": "0"
+    },
+    {
+      "column": "Debtor",
+      "dtype": "integer",
+      "sample": "0"
+    },
+    {
+      "column": "Tuition_fees_up_to_date",
+      "dtype": "integer",
+      "sample": "1"
+    },
+    {
+      "column": "Gender",
+      "dtype": "integer",
+      "sample": "1"
+    },
+    {
+      "column": "Scholarship_holder",
+      "dtype": "integer",
+      "sample": "0"
+    },
+    {
+      "column": "Age_at_enrollment",
+      "dtype": "integer",
+      "sample": "21"
+    },
+    {
+      "column": "International",
+      "dtype": "integer",
+      "sample": "0"
+    },
+    {
+      "column": "Curricular_units_1st_sem_credited",
+      "dtype": "integer",
+      "sample": "0"
+    },
+    {
+      "column": "Curricular_units_1st_sem_enrolled",
+      "dtype": "integer",
+      "sample": "6"
+    },
+    {
+      "column": "Curricular_units_1st_sem_evaluations",
+      "dtype": "integer",
+      "sample": "7"
+    },
+    {
+      "column": "Curricular_units_1st_sem_approved",
+      "dtype": "integer",
+      "sample": "6"
+    },
+    {
+      "column": "Curricular_units_1st_sem_grade",
+      "dtype": "float64",
+      "sample": "11.73"
+    },
+    {
+      "column": "Curricular_units_1st_sem_without_evaluations",
+      "dtype": "integer",
+      "sample": "0"
+    },
+    {
+      "column": "Curricular_units_2nd_sem_credited",
+      "dtype": "integer",
+      "sample": "0"
+    },
+    {
+      "column": "Curricular_units_2nd_sem_enrolled",
+      "dtype": "integer",
+      "sample": "6"
+    },
+    {
+      "column": "Curricular_units_2nd_sem_evaluations",
+      "dtype": "integer",
+      "sample": "9"
+    },
+    {
+      "column": "Curricular_units_2nd_sem_approved",
+      "dtype": "integer",
+      "sample": "5"
+    },
+    {
+      "column": "Curricular_units_2nd_sem_grade",
+      "dtype": "float64",
+      "sample": "12.45"
+    },
+    {
+      "column": "Curricular_units_2nd_sem_without_evaluations",
+      "dtype": "integer",
+      "sample": "0"
+    },
+    {
+      "column": "Unemployment_rate",
+      "dtype": "float64",
+      "sample": "6.4"
+    },
+    {
+      "column": "Inflation_rate",
+      "dtype": "float64",
+      "sample": "1.1"
+    },
+    {
+      "column": "GDP",
+      "dtype": "float64",
+      "sample": "0.50"
+    },
+    {
+      "column": "Target",
+      "dtype": "string (categorical)",
+      "sample": "Graduate"
+    }
+  ]
+}

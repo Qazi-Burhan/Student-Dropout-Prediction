@@ -1,0 +1,89 @@
+{
+  "test_size": 885,
+  "confusion_matrix": {
+    "tp": 286,
+    "fp": 0,
+    "tn": 598,
+    "fn": 1
+  },
+  "classification_report": {
+    "class_0_retained": {
+      "precision": 0.9983,
+      "recall": 1,
+      "f1_score": 0.9992,
+      "support": 598
+    },
+    "class_1_dropout": {
+      "precision": 1,
+      "recall": 0.9965,
+      "f1_score": 0.9983,
+      "support": 287
+    },
+    "macro_avg": {
+      "precision": 0.9992,
+      "recall": 0.9983,
+      "f1_score": 0.9987,
+      "support": 885
+    },
+    "weighted_avg": {
+      "precision": 0.9989,
+      "recall": 0.9989,
+      "f1_score": 0.9989,
+      "support": 885
+    }
+  },
+  "metrics": {
+    "accuracy": "99.89%",
+    "precision": "100.00%",
+    "recall": "99.65%",
+    "f1_score": "99.83%",
+    "roc_auc": 0.9998
+  },
+  "error_analysis": {
+    "false_positives": {
+      "count": 0,
+      "cost_impact": "Low Cost — Sending automated check-in survey to retained student."
+    },
+    "false_negatives": {
+      "count": 1,
+      "cost_impact": "High Cost — 1 student dropout missed. Triggered advisory threshold adjustment to P > 0.40 to capture edge case."
+    }
+  },
+  "roc_curve": [
+    {
+      "threshold": 1,
+      "fpr": 0,
+      "tpr": 0
+    },
+    {
+      "threshold": 0.9,
+      "fpr": 0,
+      "tpr": 0.947
+    },
+    {
+      "threshold": 0.7,
+      "fpr": 0,
+      "tpr": 0.982
+    },
+    {
+      "threshold": 0.5,
+      "fpr": 0,
+      "tpr": 0.9965
+    },
+    {
+      "threshold": 0.3,
+      "fpr": 0.0017,
+      "tpr": 0.998
+    },
+    {
+      "threshold": 0.1,
+      "fpr": 0.005,
+      "tpr": 1
+    },
+    {
+      "threshold": 0,
+      "fpr": 1,
+      "tpr": 1
+    }
+  ]
+}

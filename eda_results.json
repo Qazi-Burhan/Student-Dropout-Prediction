@@ -1,0 +1,149 @@
+{
+  "feature_correlations": [
+    {
+      "feature": "curricular_units_2nd_sem_approved",
+      "correlation": -0.9158,
+      "abs_correlation": 0.9158
+    },
+    {
+      "feature": "curricular_units_1st_sem_approved",
+      "correlation": -0.8675,
+      "abs_correlation": 0.8675
+    },
+    {
+      "feature": "curricular_units_2nd_sem_grade",
+      "correlation": -0.6211,
+      "abs_correlation": 0.6211
+    },
+    {
+      "feature": "debtor",
+      "correlation": 0.6063,
+      "abs_correlation": 0.6063
+    },
+    {
+      "feature": "tuition_fees_up_to_date",
+      "correlation": -0.5659,
+      "abs_correlation": 0.5659
+    },
+    {
+      "feature": "curricular_units_1st_sem_grade",
+      "correlation": -0.5639,
+      "abs_correlation": 0.5639
+    },
+    {
+      "feature": "age_at_enrollment",
+      "correlation": 0.4965,
+      "abs_correlation": 0.4965
+    },
+    {
+      "feature": "scholarship_holder",
+      "correlation": -0.1593,
+      "abs_correlation": 0.1593
+    },
+    {
+      "feature": "gdp",
+      "correlation": -0.0247,
+      "abs_correlation": 0.0247
+    },
+    {
+      "feature": "application_mode",
+      "correlation": -0.0232,
+      "abs_correlation": 0.0232
+    },
+    {
+      "feature": "marital_status",
+      "correlation": 0.0162,
+      "abs_correlation": 0.0162
+    },
+    {
+      "feature": "unemployment_rate",
+      "correlation": -0.0138,
+      "abs_correlation": 0.0138
+    },
+    {
+      "feature": "course",
+      "correlation": 0.0102,
+      "abs_correlation": 0.0102
+    },
+    {
+      "feature": "admission_grade",
+      "correlation": 0.0071,
+      "abs_correlation": 0.0071
+    },
+    {
+      "feature": "inflation_rate",
+      "correlation": -0.0029,
+      "abs_correlation": 0.0029
+    }
+  ],
+  "cross_tabs": {
+    "tuition_status": {
+      "up_to_date": {
+        "total": 3835,
+        "dropouts": 845,
+        "dropout_rate": "22.0%"
+      },
+      "in_arrears": {
+        "total": 589,
+        "dropouts": 589,
+        "dropout_rate": "100.0%"
+      }
+    },
+    "scholarship_status": {
+      "holder": {
+        "total": 904,
+        "dropouts": 160,
+        "dropout_rate": "17.7%"
+      },
+      "non_holder": {
+        "total": 3520,
+        "dropouts": 1274,
+        "dropout_rate": "36.2%"
+      }
+    },
+    "sem1_approved_units": [
+      {
+        "units_approved": 0,
+        "total": 354,
+        "dropout": 354,
+        "dropout_rate": 100
+      },
+      {
+        "units_approved": 1,
+        "total": 350,
+        "dropout": 350,
+        "dropout_rate": 100
+      },
+      {
+        "units_approved": 2,
+        "total": 358,
+        "dropout": 358,
+        "dropout_rate": 100
+      },
+      {
+        "units_approved": 3,
+        "total": 372,
+        "dropout": 372,
+        "dropout_rate": 100
+      },
+      {
+        "units_approved": 4,
+        "total": 1028,
+        "dropout": 0,
+        "dropout_rate": 0
+      },
+      {
+        "units_approved": 5,
+        "total": 973,
+        "dropout": 0,
+        "dropout_rate": 0
+      },
+      {
+        "units_approved": 6,
+        "total": 989,
+        "dropout": 0,
+        "dropout_rate": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "original_shape": [
+    4424,
+    37
+  ],
+  "cleaned_shape": [
+    4424,
+    18
+  ],
+  "missing_values": {
+    "total_missing_cells": 0,
+    "strategy": "0 missing values detected. Standard Imputation rule defined: Median for Continuous, Mode for Categorical."
+  },
+  "cleaning_actions": [
+    {
+      "action": "Duplicate Removal",
+      "count": 0,
+      "status": "Cleaned"
+    },
+    {
+      "action": "Outlier Bounding",
+      "details": "Clipped 1st/2nd Sem Grades to [0.0, 20.0] domain",
+      "status": "Cleaned"
+    },
+    {
+      "action": "Target Binary Mapping",
+      "mapping": {
+        "Dropout": 1,
+        "Graduate": 0,
+        "Enrolled": 0
+      },
+      "status": "Encoded"
+    },
+    {
+      "action": "Target Multi-Class Mapping",
+      "mapping": {
+        "Dropout": 0,
+        "Enrolled": 1,
+        "Graduate": 2
+      },
+      "status": "Encoded"
+    }
+  ],
+  "scaling_stats": {
+    "age_at_enrollment": {
+      "mean": 21.5045,
+      "std": 2.7756
+    },
+    "admission_grade": {
+      "mean": 145.423,
+      "std": 25.8764
+    },
+    "curricular_units_1st_sem_approved": {
+      "mean": 3.8637,
+      "std": 1.8697
+    },
+    "curricular_units_1st_sem_grade": {
+      "mean": 11.9198,
+      "std": 4.0001
+    },
+    "curricular_units_2nd_sem_approved": {
+      "mean": 3.7071,
+      "std": 2.0518
+    },
+    "curricular_units_2nd_sem_grade": {
+      "mean": 11.6247,
+      "std": 4.5211
+    },
+    "unemployment_rate": {
+      "mean": 7.6009,
+      "std": 2.3255
+    },
+    "inflation_rate": {
+      "mean": 1.9174,
+      "std": 0.8696
+    },
+    "gdp": {
+      "mean": 0.3071,
+      "std": 1.1458
+    }
+  },
+  "binary_target_distribution": {
+    "Dropout_Risk_1": 1434,
+    "Non_Dropout_0": 2990
+  }
+}

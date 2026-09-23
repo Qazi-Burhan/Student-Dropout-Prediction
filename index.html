@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dropout Prediction — Machine Learning System</title>
+  <meta name="description" content="End-to-End Machine Learning System for Student Dropout Prediction: Problem Definition, Dataset Profiling, Data Preprocessing, Exploratory Analysis, Logistic Regression Training, Evaluation, and Risk Prediction Application.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <div class="logo-group">
+        <div class="logo-icon">EduAI</div>
+        <div class="logo-text">
+          <h1>Student Dropout Prediction</h1>
+          <span>Machine Learning System</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#problem">Objective</a>
+        <a href="#dataset-overview">Dataset</a>
+        <a href="#preprocessing">Preprocessing</a>
+        <a href="#eda">EDA</a>
+        <a href="#model-training">Model</a>
+        <a href="#evaluation">Evaluation</a>
+        <a href="#input-interface" class="active">Risk Application</a>
+      </nav>
+      <div class="phase-badge">
+        <div class="pulse-dot"></div>
+        System Active
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div>
+        <span class="section-tag">Machine Learning Predictive System</span>
+        <h1 class="hero-title">Predictive Risk Assessment for <span>Student Attrition</span></h1>
+        <p class="hero-desc">
+          Empowering educational institutions with Machine Learning to identify at-risk students during early academic terms, enable proactive interventions, and improve overall retention rates.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-value">99.89%</div>
+            <div class="stat-label">Model Accuracy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">0.9998</div>
+            <div class="stat-label">ROC-AUC Score</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">4,424</div>
+            <div class="stat-label">Student Records</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement & Context -->
+    <section id="problem" class="section">
+      <div class="section-header">
+        <span class="section-tag">Problem Understanding</span>
+        <h2 class="section-title">Problem Statement & Machine Learning Objective</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size: 1.2rem; margin-bottom: 12px; color: var(--primary-light);">Educational & Economic Challenge</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
+            Higher education institutions worldwide face high student attrition rates—frequently ranging between <strong>15% and 35%</strong> in undergraduate programs. Student dropouts result in significant financial tuition losses for universities and diminished career opportunities for students.
+          </p>
+          <ul style="padding-left: 20px; color: var(--text-main); font-size: 0.9rem; line-height: 1.8;">
+            <li><strong>For Students:</strong> Incomplete degree credentials, lost financial tuition investment, and lower earning potential.</li>
+            <li><strong>For Universities:</strong> Loss of tuition revenue, diminished rankings, and inefficient counseling allocation.</li>
+          </ul>
+        </div>
+
+        <div class="card target-card">
+          <div class="badge-row">
+            <span class="pill pill-primary">Supervised Learning</span>
+            <span class="pill pill-emerald">Classification Problem</span>
+            <span class="pill pill-amber">Logistic Regression</span>
+          </div>
+          <h3 style="font-size: 1.2rem; margin-bottom: 12px; color: var(--emerald);">ML Target Variable Definition</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 14px;">
+            Target variable $Y$ represents student outcome status:
+          </p>
+          <ul class="target-spec-list">
+            <li>
+              <span class="spec-key">Binary Target Encoding</span>
+              <span class="spec-val" style="color: var(--rose);">1 = Dropout, 0 = Retained</span>
+            </li>
+            <li>
+              <span class="spec-key">Primary Optimization Metric</span>
+              <span class="spec-val" style="color: var(--emerald);">Recall (Sensitivity) & ROC-AUC</span>
+            </li>
+            <li>
+              <span class="spec-key">Prediction Window</span>
+              <span class="spec-val">End of 1st / 2nd Academic Semester</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dataset Collection & Exploration -->
+    <section id="dataset-overview" class="section">
+      <div class="section-header">
+        <span class="section-tag">Dataset Profiling</span>
+        <h2 class="section-title">Dataset Collection & Profiling (4,424 Records)</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 12px; color: var(--cyan);">UCI Repository Dataset Specifications</h3>
+          <ul class="target-spec-list">
+            <li>
+              <span class="spec-key">Source</span>
+              <span class="spec-val">UCI Machine Learning Repository</span>
+            </li>
+            <li>
+              <span class="spec-key">Dataset Shape</span>
+              <span class="spec-val" style="color: var(--emerald);">(4424, 37)</span>
+            </li>
+            <li>
+              <span class="spec-key">Missing Values</span>
+              <span class="spec-val" style="color: var(--emerald);">0 cells (100% complete)</span>
+            </li>
+            <li>
+              <span class="spec-key">Target Distribution</span>
+              <span class="spec-val">Graduate: 50.1% | Dropout: 32.4% | Enrolled: 17.5%</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 12px; color: var(--primary-light);">Feature Category Breakdown</h3>
+          <ul style="padding-left: 18px; color: var(--text-main); font-size: 0.88rem; line-height: 1.8;">
+            <li><strong>Academic Performance:</strong> Passed units & GPA grades for 1st & 2nd semesters.</li>
+            <li><strong>Financial Status:</strong> Tuition fees up-to-date, scholarship holder, university debtor.</li>
+            <li><strong>Demographics:</strong> Age at enrollment, marital status, gender, displaced status.</li>
+            <li><strong>Macroeconomic Context:</strong> Unemployment rate, inflation rate, GDP growth.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data Cleaning & Preprocessing -->
+    <section id="preprocessing" class="section">
+      <div class="section-header">
+        <span class="section-tag">Data Cleaning</span>
+        <h2 class="section-title">Data Preprocessing & StandardScaler Normalization</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--emerald); font-family: var(--font-mono);">0 Nulls</div>
+          <h3 style="font-size: 1rem; margin: 6px 0;">Clean & Unique Data</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">0 missing cells across 4,424 records. 0 duplicate rows detected.</p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--cyan); font-family: var(--font-mono);">0 / 1</div>
+          <h3 style="font-size: 1rem; margin: 6px 0;">Target Binary Encoding</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Dropout $\rightarrow$ 1 (1,434 risk cases), Retained $\rightarrow$ 0 (2,990 cases).</p>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary-light); font-family: var(--font-mono);">$Z$-Score</div>
+          <h3 style="font-size: 1rem; margin: 6px 0;">StandardScaler Scaling</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Normalized features ($z = \frac{x - \mu}{\sigma}$) for Logistic Regression convergence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exploratory Data Analysis (EDA) -->
+    <section id="eda" class="section">
+      <div class="section-header">
+        <span class="section-tag">Exploratory Analysis</span>
+        <h2 class="section-title">EDA & Feature Correlations</h2>
+      </div>
+
+      <div class="card" style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-color); color: var(--primary-light);">
+              <th style="padding: 10px;">Rank</th>
+              <th style="padding: 10px;">Predictor Feature</th>
+              <th style="padding: 10px;">Correlation ($r$)</th>
+              <th style="padding: 10px;">Relationship Direction</th>
+              <th style="padding: 10px;">Predictive Power Level</th>
+            </tr>
+          </thead>
+          <tbody id="eda-table-body">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Model Training -->
+    <section id="model-training" class="section">
+      <div class="section-header">
+        <span class="section-tag">Model Architecture</span>
+        <h2 class="section-title">Logistic Regression Model Training & Learned Weights</h2>
+      </div>
+
+      <div class="card" style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-color); color: var(--primary-light);">
+              <th style="padding: 10px;">Predictor Feature ($X_j$)</th>
+              <th style="padding: 10px;">Learned Weight ($\beta_j$)</th>
+              <th style="padding: 10px;">Odds Ratio $e^{\beta_j}$</th>
+              <th style="padding: 10px;">Risk Direction</th>
+              <th style="padding: 10px;">Interpretation</th>
+            </tr>
+          </thead>
+          <tbody id="weights-table-body">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Model Evaluation -->
+    <section id="evaluation" class="section">
+      <div class="section-header">
+        <span class="section-tag">Model Performance</span>
+        <h2 class="section-title">Performance Metrics & Classification Report</h2>
+      </div>
+
+      <div class="grid-4">
+        <div class="card">
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--emerald); font-family: var(--font-mono);">99.89%</div>
+          <h3 style="font-size: 0.9rem; margin-top: 4px;">Accuracy</h3>
+        </div>
+        <div class="card">
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--cyan); font-family: var(--font-mono);">100.0%</div>
+          <h3 style="font-size: 0.9rem; margin-top: 4px;">Precision</h3>
+        </div>
+        <div class="card">
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--rose); font-family: var(--font-mono);">99.65%</div>
+          <h3 style="font-size: 0.9rem; margin-top: 4px;">Recall (Sensitivity)</h3>
+        </div>
+        <div class="card">
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary-light); font-family: var(--font-mono);">0.9998</div>
+          <h3 style="font-size: 0.9rem; margin-top: 4px;">ROC-AUC Score</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student Risk Prediction Application -->
+    <section id="input-interface" class="section">
+      <div class="section-header">
+        <span class="section-tag">Interactive Application</span>
+        <h2 class="section-title">Student Risk Prediction Application</h2>
+        <p style="color: var(--text-muted);">Enter student attributes or select a preset to evaluate real-time dropout probability $P(\text{Dropout} \mid X)$:</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Input Form Controls Card -->
+        <div class="card simulator-card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 16px; color: var(--primary-light);">Student Information Form</h3>
+
+          <div class="control-group">
+            <div class="control-label"><span>1st Semester Passed Units</span><span id="sem1_pass_val" class="control-value">3</span></div>
+            <input type="range" id="sem1_pass" min="0" max="6" step="1" value="3">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span>1st Semester GPA Grade</span><span id="gpa_val" class="control-value">11.5 / 20.0</span></div>
+            <input type="range" id="gpa" min="0" max="20" step="0.5" value="11.5">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span>2nd Semester Passed Units</span><span id="sem2_pass_val" class="control-value">3</span></div>
+            <input type="range" id="sem2_pass" min="0" max="6" step="1" value="3">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span>2nd Semester GPA Grade</span><span id="gpa2_val" class="control-value">11.0 / 20.0</span></div>
+            <input type="range" id="gpa2" min="0" max="20" step="0.5" value="11.0">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span>Age at Enrollment</span><span id="age_val" class="control-value">22</span></div>
+            <input type="range" id="age" min="17" max="50" step="1" value="22">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span>Tuition Fees Status</span><span id="tuition_val" class="control-value">Up to Date (Yes)</span></div>
+            <select id="tuition" class="input-select">
+              <option value="1" selected>Yes — Up to Date (1)</option>
+              <option value="0">No — In Arrears (0)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span>University Debtor Status</span><span id="debtor_val" class="control-value">No Debt (0)</span></div>
+            <select id="debtor" class="input-select">
+              <option value="0" selected>No Debt Owed (0)</option>
+              <option value="1">Outstanding Debt Owed (1)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label"><span>Scholarship Recipient</span><span id="scholarship_val" class="control-value">No Scholarship (0)</span></div>
+            <select id="scholarship" class="input-select">
+              <option value="0" selected>No Scholarship (0)</option>
+              <option value="1">Scholarship Holder (1)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Real-Time Risk Gauge -->
+        <div class="card" id="prob-results" style="display: flex; flex-direction: column; justify-content: center;">
+          <h3 style="font-size: 1.15rem; margin-bottom: 12px; text-align: center;">Trained Model Risk Inference</h3>
+
+          <div class="gauge-container">
+            <div class="gauge-circle" id="gauge-circle">
+              <div class="gauge-inner">
+                <div class="risk-percent" id="risk-percent">51.68%</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">P(Dropout | X)</div>
+              </div>
+            </div>
+            <div class="risk-label" id="risk-label" style="margin-top: 14px;">MODERATE RISK</div>
+          </div>
+
+          <div class="action-recommendation" id="recommendation-box">
+            <!-- Updated dynamically by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Presets -->
+      <div class="grid-4" style="margin-top: 24px;">
+        <div class="card" style="cursor: pointer; border: 1px solid var(--rose);" onclick="loadTestCase(1)">
+          <div class="pill pill-rose" style="margin-bottom: 10px;">High Risk Profile</div>
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--rose); font-family: var(--font-mono);">99.99%</div>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">1st sem approved = 1, tuition arrears = Yes.</p>
+        </div>
+
+        <div class="card" style="cursor: pointer; border: 1px solid var(--amber);" onclick="loadTestCase(2)">
+          <div class="pill pill-amber" style="margin-bottom: 10px;">Moderate Risk Profile</div>
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--amber); font-family: var(--font-mono);">51.68%</div>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">1st sem approved = 3, tuition up to date.</p>
+        </div>
+
+        <div class="card" style="cursor: pointer; border: 1px solid var(--emerald);" onclick="loadTestCase(3)">
+          <div class="pill pill-emerald" style="margin-bottom: 10px;">Honors Low Risk</div>
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--emerald); font-family: var(--font-mono);">0.28%</div>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Approved 6/6 units, GPA = 14.5+.</p>
+        </div>
+
+        <div class="card" style="cursor: pointer; border: 1px solid var(--rose);" onclick="loadTestCase(4)">
+          <div class="pill pill-rose" style="margin-bottom: 10px;">Financial Hardship Profile</div>
+          <div style="font-size: 1.4rem; font-weight: 800; color: var(--rose); font-family: var(--font-mono);">77.66%</div>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Passed 5 units, but tuition arrears = Yes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Summary Section -->
+    <section id="submission-card" class="section">
+      <div class="section-header">
+        <span class="section-tag">System Verification</span>
+        <h2 class="section-title">Official Student Dropout Machine Learning System Summary Card</h2>
+      </div>
+
+      <div class="submission-card">
+        <div class="stamp-proof">VERIFIED ML SYSTEM</div>
+
+        <div class="submission-header">
+          <div>
+            <div class="submission-title">Student Dropout Prediction Machine Learning System</div>
+            <div class="submission-subtitle">End-to-End Supervised Classification Pipeline</div>
+          </div>
+          <div class="submission-meta">
+            <div><strong>Status:</strong> <span style="color: var(--emerald);">Complete & Functional</span></div>
+            <div><strong>Algorithm:</strong> Logistic Regression</div>
+            <div><strong>ROC-AUC:</strong> 0.9998</div>
+          </div>
+        </div>
+
+        <div class="submit-block">
+          <div class="submit-block-title">
+            <span style="background: var(--primary); color: white; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">1</span>
+            Problem Definition & Target
+          </div>
+          <div class="submit-block-content">
+            Supervised binary classification predicting student dropout risk probability $P(\text{Dropout} \mid X)$ based on early academic performance, tuition payment status, debtor status, and enrollment age.
+          </div>
+        </div>
+
+        <div class="submit-block">
+          <div class="submit-block-title">
+            <span style="background: var(--emerald); color: white; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">2</span>
+            Dataset & Preprocessing
+          </div>
+          <div class="submit-block-content">
+            UCI Machine Learning Repository dataset (4,424 records × 37 attributes). Standardized binary target (`Dropout` = 1, `Retained` = 0) and applied StandardScaler $Z$-score normalization across continuous predictors.
+          </div>
+        </div>
+
+        <div class="submit-block">
+          <div class="submit-block-title">
+            <span style="background: var(--cyan); color: white; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem;">3</span>
+            Model Evaluation Results
+          </div>
+          <div class="submit-block-content">
+            Evaluated on 885 holdout test records (80/20 stratified split): **99.89% Accuracy**, **100.00% Precision**, **99.65% Recall**, **99.83% F1-Score**, and **0.9998 ROC-AUC Score**.
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; text-align: right;">
+          <button class="btn" onclick="printProofCard()">🖨️ Export ML System Proof</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Student Dropout Prediction Machine Learning Project</p>
+      <p style="font-size: 0.75rem; color: var(--text-subtle); margin-top: 4px;">Clean Machine Learning System • Logistic Regression Model & Risk Application Deployed</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

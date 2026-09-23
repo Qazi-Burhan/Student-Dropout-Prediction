@@ -1,0 +1,140 @@
+{
+  "split": {
+    "train_total": 3539,
+    "test_total": 885,
+    "ratio": "80 / 20 Stratified"
+  },
+  "model_params": {
+    "algorithm": "Logistic Regression Classifier",
+    "solver": "Stochastic Gradient Descent (SGD)",
+    "bias": -0.8385,
+    "weights": [
+      {
+        "feature": "curricular_units_2nd_sem_approved",
+        "weight": -1.3435
+      },
+      {
+        "feature": "curricular_units_1st_sem_approved",
+        "weight": -1.2088
+      },
+      {
+        "feature": "tuition_fees_up_to_date",
+        "weight": -0.6639
+      },
+      {
+        "feature": "debtor",
+        "weight": 0.6226
+      },
+      {
+        "feature": "curricular_units_1st_sem_grade",
+        "weight": -0.6065
+      },
+      {
+        "feature": "curricular_units_2nd_sem_grade",
+        "weight": -0.7026
+      },
+      {
+        "feature": "age_at_enrollment",
+        "weight": 0.535
+      },
+      {
+        "feature": "scholarship_holder",
+        "weight": -0.1128
+      }
+    ]
+  },
+  "metrics": {
+    "accuracy": "99.89%",
+    "precision": "100.00%",
+    "recall": "99.65%",
+    "f1_score": "99.82%",
+    "confusion_matrix": {
+      "tp": 286,
+      "fp": 0,
+      "tn": 598,
+      "fn": 1
+    }
+  },
+  "sample_predictions": [
+    {
+      "test_instance_id": 1,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 99.55,
+      "confidence_score": 99.55,
+      "match": true
+    },
+    {
+      "test_instance_id": 2,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 99.54,
+      "confidence_score": 99.54,
+      "match": true
+    },
+    {
+      "test_instance_id": 3,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 99.91,
+      "confidence_score": 99.91,
+      "match": true
+    },
+    {
+      "test_instance_id": 4,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 94.76,
+      "confidence_score": 94.76,
+      "match": true
+    },
+    {
+      "test_instance_id": 5,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 91.2,
+      "confidence_score": 91.2,
+      "match": true
+    },
+    {
+      "test_instance_id": 6,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 99.26,
+      "confidence_score": 99.26,
+      "match": true
+    },
+    {
+      "test_instance_id": 7,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 99.19,
+      "confidence_score": 99.19,
+      "match": true
+    },
+    {
+      "test_instance_id": 8,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 99.46,
+      "confidence_score": 99.46,
+      "match": true
+    },
+    {
+      "test_instance_id": 9,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 92.14,
+      "confidence_score": 92.14,
+      "match": true
+    },
+    {
+      "test_instance_id": 10,
+      "actual_class": "Dropout (1)",
+      "predicted_class": "Dropout (1)",
+      "dropout_probability": 99.33,
+      "confidence_score": 99.33,
+      "match": true
+    }
+  ]
+}
